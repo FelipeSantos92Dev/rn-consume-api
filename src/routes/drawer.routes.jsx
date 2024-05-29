@@ -2,9 +2,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
 
 import Home from "../screens/Home";
-import Profile from "../screens/Profile";
+import Profile from "../screens/Detalhamento";
 import Category from "../screens/Category";
-import { user } from "../data/Profile";
+import Products from "../screens/Users";
+import { product } from "../data/Profile";
+import Carrinho from "../screens/Carrinho";
+import Cadastro from "../screens/Cadastro";
 
 const Drawer = createDrawerNavigator();
 
@@ -31,19 +34,18 @@ const DrawerRoutes = () => {
       <Drawer.Screen
         name="Profile"
         component={Profile}
-        initialParams={{ data: user }}
+        initialParams={{ data: product }}
         options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          tabBarIcon: ({ focused }) => (
             <Feather
               name="user"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: "Perfil",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
+          tabBarLabel: "Perfil",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
       <Drawer.Screen
@@ -63,6 +65,62 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+      <Drawer.Screen
+        name="Products"
+        component={Products}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Produtos",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="Carrinho"
+        component={Carrinho}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Produtos",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="Cadastro"
+        component={Cadastro}
+        options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: "#103778"
+          },
+          headerTintColor: "white",
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Cadastro",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
     </Drawer.Navigator>
   );
 };
