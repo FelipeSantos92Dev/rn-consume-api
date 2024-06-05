@@ -12,16 +12,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#C9D4FF",
     borderRadius: 5,
   },
-  users: {
-    width: "100%",
-    padding: 20,
-  },
   user: {
+    marginTop: 20,
     padding: 10,
     backgroundColor: "#C9D4FF",
     borderRadius: 5,
-    marginBottom: 10,
   },
+  text: {
+    fontSize: 16,
+  },
+  logo: {
+    width: 300,
+    height: 300
+  }
 });
 
 export default styles;

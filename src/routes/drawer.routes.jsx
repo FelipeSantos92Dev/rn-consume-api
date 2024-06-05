@@ -2,9 +2,10 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
 
 import Home from "../screens/Home";
-import Profile from "../screens/Profile";
+import ProductDetails from "../screens/Detalhamento";
 import Category from "../screens/Category";
-import { user } from "../data/Profile";
+import ShopCart from "../screens/Carrinho";
+import Register from "../screens/Cadastro";
 
 const Drawer = createDrawerNavigator();
 
@@ -29,21 +30,20 @@ const DrawerRoutes = () => {
         }}
       />
       <Drawer.Screen
-        name="Profile"
-        component={Profile}
-        initialParams={{ data: user }}
+        name="ProductDetails"
+        component={ProductDetails}
         options={{
-          headerTitle: "",
-          drawerIcon: ({ focused }) => (
+          drawerItemStyle: { display: "none" },
+          drawerBarIcon: ({ focused }) => (
             <Feather
               name="user"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          drawerLabel: "Perfil",
-          drawerActiveTintColor: "#131313",
-          drawerInactiveTintColor: "#D6D6D6",
+          drawerBarLabel: "Perfil",
+          drawerBarActiveTintColor: "#131313",
+          drawerBarInactiveTintColor: "#D6D6D6",
         }}
       />
       <Drawer.Screen
@@ -63,6 +63,44 @@ const DrawerRoutes = () => {
           drawerInactiveTintColor: "#D6D6D6",
         }}
       />
+
+      <Drawer.Screen
+        name="ShopCart"
+        component={ShopCart}
+        options={{
+          drawerItemStyle: { display: "none" },
+          drawerBarIcon: ({ focused }) => (
+            <Feather
+              name="users"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          drawerBarLabel: "Produtos",
+          drawerBarActiveTintColor: "#131313",
+          drawerBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Drawer.Screen
+        name="Register"
+        component={Register}
+        options={{
+          title: "",
+          drawerBarIcon: ({ focused }) => (
+            <Feather
+              name="user"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          headerStyle: { backgroundColor: "#10377B" },
+          drawerBarLabel: "Produtos",
+          drawerBarActiveTintColor: "#131313",
+          drawerBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
     </Drawer.Navigator>
   );
 };
